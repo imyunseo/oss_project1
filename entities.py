@@ -69,6 +69,12 @@ class Player(pygame.sprite.Sprite):
 
         if keys[pygame.K_RIGHT]:
             self.rect.x += PLAYER_SPEED
+
+        if self.rect.left < 0:
+            self.rect.left = 0
+
+        if self.rect.right > WIDTH:
+            self.rect.right = WIDTH
         
         pass
 
