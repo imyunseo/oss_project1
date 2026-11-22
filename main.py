@@ -62,15 +62,25 @@ class Game:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.running = False
+
             elif self.on_title:
                 self.handle_title_event(event)  # 시작 화면 입력은 여기서만 처리
+
             elif event.type == SPAWN_ENEMY and not self.game_over:
                 enemy = Enemy()
                 self.enemies.add(enemy)
                 self.all_sprites.add(enemy)
+
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     self.running = False
+
+                elif event.key == pygame.K_SPACE and not self.game_over:
+                    bullet = self.player.shoot()
+                    self.bullets.add(bullet)
+                    self.all_sprites.add(bullet)
+
+            # TODO(F5): 게임 오버 상태에서 R 키를 누르면 재시작
                 # TODO(F2): 스페이스 키를 누르면 self.player.shoot() 으로 총알을 만들어
                 #           self.bullets 와 self.all_sprites 두 그룹에 넣을 것. (게임 오버 중에는 쏘지 않게)
                 # TODO(F5): 게임 오버 상태에서 R 키를 누르면 self.reset() 으로 새 판을 시작할 것.
