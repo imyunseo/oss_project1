@@ -187,6 +187,9 @@ class Game:
         self.draw_text("GAME OVER", self.big_font, WHITE, center=(WIDTH // 2, HEIGHT // 2 - 40))
         self.draw_text(f"SCORE: {self.score}", self.font, WHITE, center=(WIDTH // 2, HEIGHT // 2 + 20))
 
+        self.draw_text(f"HIGH SCORE: {self.high_score}", self.font, WHITE, center=(WIDTH // 2, HEIGHT // 2 + 60))
+        self.draw_text("Press R to restart", self.font, WHITE, center=(WIDTH // 2, HEIGHT // 2 + 100))
+
     # ---------------- 게임 루프 ----------------
     def step(self):
         """한 프레임: 입력 → 갱신 → 그리기."""
