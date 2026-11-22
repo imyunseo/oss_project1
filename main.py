@@ -176,7 +176,8 @@ class Game:
         """게임 오버 화면. self.game_over 가 True 일 때 draw() 가 부른다."""
         # TODO(F4): 화면 가운데에 "GAME OVER" 와 이번 판 점수를 표시할 것.
         # TODO(F5): 최고 점수("HIGH SCORE: 300")와 재시작 안내("Press R to restart")도 표시할 것.
-        pass
+        self.draw_text("GAME OVER", self.big_font, WHITE, center=(WIDTH // 2, HEIGHT // 2 - 40))
+        self.draw_text(f"SCORE: {self.score}", self.font, WHITE, center=(WIDTH // 2, HEIGHT // 2 + 20))
 
     # ---------------- 게임 루프 ----------------
     def step(self):
